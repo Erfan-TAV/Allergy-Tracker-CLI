@@ -25,14 +25,12 @@ int main()
     // creates a table FOOD if it doesn't exist with sku, food_name, and food_allergic as columns
     createFoodTable(db);
 
-    // displayed a menu for the user to choose what to do with the program
-    userMenu();
-
-    /**********************************
+        /**********************************
      * INPUT - get the user's choice
      */
-    userChoice = errorCheckInt(userExit, userMaxChoice);
-    cin.ignore(1000, '\n');
+    // displayed a menu for the user to choose what to do with the program
+    userMenu();
+    errorCheckInt(userChoice, userExit, userMaxChoice);
 
     while(userChoice != 0)
     {
@@ -53,8 +51,7 @@ int main()
          * INPUT - get the user's choice
          */
         userMenu();
-        userChoice = errorCheckInt(userExit, userMaxChoice);
-        cin.ignore(1000, '\n');
+        errorCheckInt(userChoice, userExit, userMaxChoice);
     }
 
     clearScreen();
