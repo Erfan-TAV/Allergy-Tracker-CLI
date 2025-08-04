@@ -41,49 +41,48 @@ void newAllergyPage(sqlite3 *database)
      *************************************/
     // TODO: error checking
     cout << "(1): ";
-    cin >> foodSKU;
-    cin.ignore(1000, '\n');
+    errorCheckInt(foodSKU, 0, 1569325055);
 
     // the user wants to continue adding a new food
-    // if(foodSKU > 0)
-    // {
-    cout << "(2): ";
-    getline(cin, foodName);
+    if(foodSKU > 0)
+    {
+        cout << "(2): ";
+        getline(cin, foodName);
 
-    cout << "(3): ";
-    cin.get(foodAllergic);
-    cin.ignore(1000, '\n');
+        cout << "(3): ";
+        cin.get(foodAllergic);
+        cin.ignore(1000, '\n');
 
-    if(foodAllergic == 'Y' || foodAllergic == 'y')
-    {
-        foodAllergicBool = 1;
-    }
-    else
-    {
-        foodAllergicBool = 0;
-    }
+        if(foodAllergic == 'Y' || foodAllergic == 'y')
+        {
+            foodAllergicBool = 1;
+        }
+        else
+        {
+            foodAllergicBool = 0;
+        }
 
-    /***************************
-     * PROC - create sql query and combine to a single string
-     */
-    // TODO: add sqlite3 prepared statements
-    foodSKUStr = to_string(foodSKU);
-    foodAllergicBoolStr = to_string(foodAllergicBool);
-    cout << "foodSKU: " << foodSKUStr << endl;
-    cout << "food allergic: " << foodAllergicBoolStr << endl;
-    sqlQuery
-        = "INSERT INTO FOOD(SKU, food_name, food_allergic) VALUES(" + foodSKUStr + ", \'" + foodName + "\', " + foodAllergicBoolStr + ");";
-    // executeSQL(database, sqlQuery.c_str(), NULL, NULL);
-    char *errMsg;
-    int rc = sqlite3_exec(database, sqlQuery.c_str(), NULL, 0, &errMsg);
-    if(rc != SQLITE_OK)
-    {
-        cout << "error occured " << errMsg << endl;
-        sqlite3_free(errMsg);
+        /***************************
+         * PROC - create sql query and combine to a single string
+         */
+        // TODO: add sqlite3 prepared statements
+        foodSKUStr = to_string(foodSKU);
+        foodAllergicBoolStr = to_string(foodAllergicBool);
+        cout << "foodSKU: " << foodSKUStr << endl;
+        cout << "food allergic: " << foodAllergicBoolStr << endl;
+        sqlQuery
+            = "INSERT INTO FOOD(SKU, food_name, food_allergic) VALUES(" + foodSKUStr + ", \'" + foodName + "\', " + foodAllergicBoolStr + ");";
+        // executeSQL(database, sqlQuery.c_str(), NULL, NULL);
+        char *errMsg;
+        int rc = sqlite3_exec(database, sqlQuery.c_str(), NULL, 0, &errMsg);
+        if(rc != SQLITE_OK)
+        {
+            cout << "error occured " << errMsg << endl;
+            sqlite3_free(errMsg);
+        }
+        else
+        {
+            cout << "operation insert successful" << endl;
+        }
     }
-    else
-    {
-        cout << "operation insert successful" << endl;
-    }
-    // }
 }

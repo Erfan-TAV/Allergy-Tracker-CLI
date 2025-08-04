@@ -17,7 +17,7 @@ int main()
     sqlite3 *db;
 
     // variables
-    short userChoice;
+    int userChoice;
 
     char filename[] = "food_table.db";
     db = openDB(filename, db);
@@ -25,7 +25,7 @@ int main()
     // creates a table FOOD if it doesn't exist with sku, food_name, and food_allergic as columns
     createFoodTable(db);
 
-        /**********************************
+    /**********************************
      * INPUT - get the user's choice
      */
     // displayed a menu for the user to choose what to do with the program

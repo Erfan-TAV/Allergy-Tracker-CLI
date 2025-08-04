@@ -1,6 +1,7 @@
 #include "AllergyHeader.h"
 
-void errorCheckInt(short &userChoice, int lowNum, int highNum)
+// TODO: implement the use of different types of integers, short/long/long long
+void errorCheckInt(int &userChoice, int lowNum, int highNum)
 {
     bool invalid;
 
