@@ -5,7 +5,7 @@ void createFoodTable(sqlite3 *db)
     cerr << "checking for food table...";
 
     string sql = "CREATE TABLE FOOD("
-                 "SKU TEXT PRIMARY KEY NOT NULL,"
+                 "SKU INTEGER PRIMARY KEY NOT NULL,"
                  "food_name TEXT NOT NULL,"
                  "food_allergic INTEGER NOT NULL)";
 

@@ -35,4 +35,9 @@ void errorCheckInt(int &userChoice, int lowNum, int highNum);
 
 void deleteAllergyPage(sqlite3 *database);
 
+// TODO: modify to overload the same function name
+// void deleteBySKU(sqlite3 *database, int sku);
+
+void deleteByName(sqlite3 *database, string foodName);
+
 #endif /* ALLERGYHEADER_H_ */

@@ -11,7 +11,7 @@ int main()
 {
     // constants
     const int userExit = 0;
-    const int userMaxChoice = 3;
+    const int userMaxChoice = 4;
 
     // database
     sqlite3 *db;
@@ -39,12 +39,17 @@ int main()
             case 1:
                 newAllergyPage(db);
                 break;
+            case 2:
+                // searchAllergyPage();
+                break;
             case 3:
                 // viewAllAllergyPage();
                 break;
+            case 4:
+                deleteAllergyPage(db);
+                break;
             // case 2
             default:
-                // searchAllergyPage();
                 break;
         }
         /**********************************
