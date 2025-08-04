@@ -9,6 +9,10 @@
 
 int main()
 {
+    // constants
+    const int userExit = 0;
+    const int userMaxChoice = 3;
+
     // database
     sqlite3 *db;
 
@@ -27,8 +31,7 @@ int main()
     /**********************************
      * INPUT - get the user's choice
      */
-    // TODO: add error checking
-    cin >> userChoice;
+    userChoice = errorCheckInt(userExit, userMaxChoice);
     cin.ignore(1000, '\n');
 
     while(userChoice != 0)
@@ -46,9 +49,11 @@ int main()
                 // searchAllergyPage();
                 break;
         }
-
+        /**********************************
+         * INPUT - get the user's choice
+         */
         userMenu();
-        cin >> userChoice;
+        userChoice = errorCheckInt(userExit, userMaxChoice);
         cin.ignore(1000, '\n');
     }
 

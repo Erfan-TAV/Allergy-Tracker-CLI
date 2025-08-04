@@ -1,9 +1,9 @@
 #include "AllergyHeader.h"
 
-int errorCheckInt()
+int errorCheckInt(int lowNum, int highNum)
 {
     bool invalid;
-    int userChoice;
+    int userChoice = 0;
 
     invalid = true;
 
@@ -11,23 +11,22 @@ int errorCheckInt()
     {
         if(!(cin >> userChoice))
         {
+            cout << endl
+                 << "   ****Please enter a valid input, a number between " + to_string(lowNum) + " and " + to_string(highNum) << endl
+                 << endl;
             cin.clear();
+        }
+        else if(userChoice < lowNum || userChoice > highNum)
+        {
+            cout << endl
+                 << "   ****Please enter a valid input, a number between " + to_string(lowNum) + " and " + to_string(highNum) << endl
+                 << endl;
         }
         else
         {
-            invalid = (userChoice >= 0 && userChoice <= 3);
-            if(invalid)
-            {
-                cout << endl
-                     << "   ****Please enter a valid input, a number 0 through 3" << endl
-                     << endl;
-            }
-            else
-            {
-                invalid = false;
-            }
+            invalid = false;
         }
-
+        cin.ignore(1000, '\n');
     } while(invalid);
 
     return userChoice;

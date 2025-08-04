@@ -31,4 +31,6 @@ void newAllergyPage(sqlite3 *database);
 
 string centerText(int colWidth, string text);
 
+int errorCheckInt(int lowNum, int highNum);
+
 #endif /* ALLERGYHEADER_H_ */
