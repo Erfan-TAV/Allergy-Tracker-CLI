@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 project(AllergyTracker)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 
 # Find dependencies
 find_package(SQLite3 REQUIRED)
