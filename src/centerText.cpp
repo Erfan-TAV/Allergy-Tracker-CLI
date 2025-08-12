@@ -5,35 +5,43 @@ string centerText(int colWidth, string text)
     int padding;
     string outputString;
 
-    // colWidth is even
-    if(colWidth % 2 == 0)
+    if(text.length() >= colWidth)
     {
-        // text length is even
-        if(text.length() % 2 == 0)
-        {
-            padding = (colWidth - text.length()) / 2;
-        }
-        // text length is odd
-        else
-        {
-            padding = (colWidth - text.length() - 1) / 2;
-        }
+        return text;
     }
-    // colWidth is odd
     else
     {
-        // text length is even
-        if(text.length() % 2 == 0)
+        // colWidth is even
+        if(colWidth % 2 == 0)
         {
-            padding = (colWidth - text.length() - 1) / 2;
+            // text length is even
+            if(text.length() % 2 == 0)
+            {
+                padding = (colWidth - text.length()) / 2;
+            }
+            // text length is odd
+            else
+            {
+                padding = (colWidth - text.length() - 1) / 2;
+            }
         }
-        // text length is odd
+        // colWidth is odd
         else
         {
-            padding = (colWidth - text.length()) / 2;
+            // text length is even
+            if(text.length() % 2 == 0)
+            {
+                padding = (colWidth - text.length() - 1) / 2;
+            }
+            // text length is odd
+            else
+            {
+                padding = (colWidth - text.length()) / 2;
+            }
         }
-    }
 
-    outputString = string(padding, ' ') + text + string(padding, ' ');
-    return outputString;
+        outputString = string(padding, ' ') + text + string(padding, ' ');
+
+        return outputString;
+    }
 }
